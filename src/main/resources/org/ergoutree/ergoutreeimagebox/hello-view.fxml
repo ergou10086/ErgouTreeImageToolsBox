@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+<?import org.kordamp.bootstrapfx.scene.layout.Panel?>
+
+<?import java.net.URL?>
+<BorderPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ergoutree.ergoutreeimagebox.HelloController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    <top>
+        <VBox spacing="5.0" styleClass="bg-light" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Label styleClass="h3" text="ErgouTree图像工具箱">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <effect>
+                                <DropShadow color="#00000080" radius="3.0" />
+                            </effect>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                    </padding>
+                </HBox>
+                <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="bg-light">
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#onOpenImageClick" styleClass="btn,btn-primary" text="打开图片">
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/open.svg" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Separator orientation="VERTICAL" />
+                        <Button mnemonicParsing="false" onAction="#onSaveImageClick" styleClass="btn,btn-success" text="保存图片">
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/save.svg" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Separator orientation="VERTICAL" />
+                        <Label text="格式转换:" />
+                        <ComboBox fx:id="formatComboBox" prefWidth="80.0" styleClass="combo-box" />
+                        <Button mnemonicParsing="false" onAction="#onConvertFormatClick" styleClass="btn,btn-info" text="转换格式">
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@icons/convert.svg" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </items>
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                </ToolBar>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.75" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" styleClass="image-preview">
+                    <content>
+                        <StackPane style="-fx-background-color: rgba(240, 240, 240, 0.8);">
+                            <children>
+                                <ImageView fx:id="imagePreview" pickOnBounds="true" preserveRatio="true" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </StackPane>
+                    </content>
+                </ScrollPane>
+                <Panel styleClass="panel-primary">
+                    <heading>
+                        <Label text="图像处理工具" styleClass="h4"/>
+                    </heading>
+                    <children>
+                        <VBox spacing="10.0">
+                            <children>
+                                <TitledPane animated="false" text="基础处理" styleClass="titled-pane">
+                                    <content>
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onResizeImageClick" styleClass="btn,btn-default" text="调整大小">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/resize.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onRotateImageClick" styleClass="btn,btn-default" text="旋转图片">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/rotate.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCropImageClick" styleClass="btn,btn-default" text="裁剪图片">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/crop.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="通道处理" styleClass="titled-pane">
+                                    <content>
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onConvertRGBAToRGBClick" styleClass="btn,btn-default" text="RGBA转RGB">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/rgba.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onConvertToGrayscaleClick" styleClass="btn,btn-default" text="转换为灰度图">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/grayscale.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="高级处理" styleClass="titled-pane">
+                                    <content>
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCompressImageClick" styleClass="btn,btn-default" text="压缩图片">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/compress.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAddWatermarkClick" styleClass="btn,btn-default" text="添加水印">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/watermark.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDenoiseImageClick" styleClass="btn,btn-default" text="图片降噪">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/denoise.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="截图功能" styleClass="titled-pane">
+                                    <content>
+                                        <VBox spacing="8.0">
+                                            <children>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCaptureFullScreenClick" styleClass="btn,btn-default" text="截取全屏">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/fullscreen.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onCaptureRegionClick" styleClass="btn,btn-default" text="截取区域">
+                                                    <graphic>
+                                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@icons/region.svg" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <Button text="撤销" fx:id="undoButton" onAction="#onUndoClick" styleClass="btn,btn-warning">
+                                <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@icons/undo.svg" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Label fx:id="undoStepsLabel" text="可撤销步数: 0" styleClass="undo-steps-label" />
+                        </VBox>
+                    </children>
+                </Panel>
+            </items>
+        </SplitPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="bg-light" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="statusLabel" text="请选择一张图片开始操作" styleClass="status-label" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,142 @@
+.root {
+    -fx-background-image: url("../../../image/background.jpg");
+    -fx-background-size: cover; /* 让背景图片覆盖整个区域 */
+    -fx-background-position: center; /* 背景图片居中显示 */
+    -fx-background-repeat: no-repeat; /* 不重复显示背景图片 */
+}
+
+.bg-light {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.image-preview {
+    -fx-background-color: rgba(240, 240, 240, 0.9);
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+
+.titled-pane {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-min-width: 350px;
+}
+
+.titled-pane > .title {
+    -fx-background-color: rgba(240, 240, 240, 0.95);
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-width: 350px;
+}
+
+.titled-pane > *.content {
+    -fx-min-width: 350px;
+    -fx-padding: 10px;
+}
+
+.btn {
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+    -fx-min-height: 35px;
+    -fx-min-width: 320px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.btn:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 2);
+    -fx-translate-y: -1px;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}
+
+.btn-success {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+}
+
+.btn-info {
+    -fx-background-color: #17a2b8;
+    -fx-text-fill: white;
+}
+
+.btn-warning {
+    -fx-background-color: #ffc107;
+    -fx-text-fill: #212529;
+}
+
+.btn-default {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #212529;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-min-height: 35px;
+}
+
+.status-label {
+    -fx-text-fill: #666;
+    -fx-font-style: italic;
+}
+
+.undo-steps-label {
+    -fx-text-fill: #666;
+    -fx-font-style: italic;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 0;
+}
+
+.h3 {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+.h4 {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.tool-bar {
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+
+.split-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.split-pane-divider {
+    -fx-background-color: #ddd;
+    -fx-padding: 0 1px;
+}
+
+VBox {
+    -fx-spacing: 10px;
+    -fx-min-width: 350px;
+}
+
+.panel-primary {
+    -fx-min-width: 350px;
+} 
